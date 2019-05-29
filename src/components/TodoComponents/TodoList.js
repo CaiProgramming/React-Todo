@@ -13,14 +13,15 @@ export default class List extends React.Component {
   }
 
   listHandler = () => {
-
+    if(this.props.list){
     return this.props.list.map(item => {
       return (
-        <p onClick={this.clearHandler} className="normal" id={item.id} key={item.id}>
+        <p onClick={this.clearHandler} className={(item.completed === false) ? "normal" : "striked"} id={item.id} key={item.id}>
           {item.task}
         </p>
       );
     });
+  }
   };
   render() {
     return <div>{this.listHandler()}</div>;
