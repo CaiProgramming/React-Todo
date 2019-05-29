@@ -1,0 +1,11 @@
+.Form{
+  display: flex;
+}
+.striked{
+  cursor: pointer;
+  text-decoration: line-through;
+}
+.normal{
+    cursor: pointer;
+    text-decoration: none;
+}
