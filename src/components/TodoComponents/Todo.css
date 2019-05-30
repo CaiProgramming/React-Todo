@@ -9,3 +9,13 @@
     cursor: pointer;
     text-decoration: none;
 }
+.Btn{
+  flex-grow: 1;
+}
+.ListInput{
+  flex-grow: 1;
+  height: 30px;
+  border-radius: 5px;
+  background-color: #e0e0e0;
+  font-family: sans-serif;
+}

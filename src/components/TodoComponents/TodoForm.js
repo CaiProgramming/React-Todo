@@ -57,10 +57,10 @@ export default class Form extends React.Component {
   render() {
     return (
       <div>
-        <List list={this.state.List} cb={this.callbackHandler} />
         <section className="Form">
           <input
             type="text"
+            className="ListInput"
             onChange={this.textHandler}
             value={this.state.text}
           />
@@ -71,6 +71,7 @@ export default class Form extends React.Component {
             Clear Completed
           </button>
         </section>
+        <List list={this.state.List} cb={this.callbackHandler} />
       </div>
     );
   }
