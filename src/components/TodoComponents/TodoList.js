@@ -16,7 +16,7 @@ export default class List extends React.Component {
     if(this.props.list){
     return this.props.list.map(item => {
       return (
-        <p onClick={this.clearHandler} className={(item.completed === false) ? "normal" : "striked"} id={item.id} key={item.id}>
+        <p onClick={this.clearHandler} className={(item.completed === false) ? `normal ${(item.searched === true ? "searched" : "nsearched")}` : `striked ${(item.searched === true ? "searched" :"nsearched")}`} id={item.id} key={item.id}>
           {item.task}
         </p>
       );
