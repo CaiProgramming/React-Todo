@@ -5,7 +5,8 @@ export default class Form extends React.Component {
 
   state={
         List: JSON.parse(localStorage.getItem("List")),
-        text:""
+        text:"",
+        search:""
   }
 
 
@@ -15,15 +16,18 @@ export default class Form extends React.Component {
     });
   };
   addHandler = () => {
+    if(this.state.text !== ""){
     let id = Math.floor(Math.random() * 20000) + 7000;
     this.setState({
       List: this.state.List.concat({
         task: this.state.text,
         id: id,
-        completed: false
+        completed: false,
+        searched: true
       }),
       text: ""
     });
+  }
   };
   callbackHandler = (id, bool) => {
     let updateIndex = this.state.List.findIndex(obj => obj.id == id);
@@ -39,7 +43,8 @@ export default class Form extends React.Component {
     });
   };
 
-  componentDidUpdate = () => {
+
+  componentDidUpdate =  () => {
     if(this.state.List){
     localStorage.setItem("List",JSON.stringify(this.state.List));
   }else{
@@ -47,30 +52,44 @@ export default class Form extends React.Component {
       List: []
     })
   }
+  if(this.props.sText !== ""){
+    if(this.state.List){
+    let list = this.state.List;
+     list.forEach((item,index) => {if(item.task !== this.props.sText) list[index].searched = false; })
+    }
+   }
+   else{
+     if(this.state.List){
+     let list = this.state.List;
+      list.forEach((item,index) => {list[index].searched = true; })
+      }
+    }
   };
   componentDidMount = () =>{
     if(!localStorage.getItem("List")){
       localStorage.setItem("List",JSON.stringify([]));
+      window.location.reload();
     }
   }
 
   render() {
     return (
       <div>
-        <List list={this.state.List} cb={this.callbackHandler} />
         <section className="Form">
           <input
             type="text"
+            className="ListInput"
             onChange={this.textHandler}
             value={this.state.text}
           />
           <button className="Btn" onClick={this.addHandler}>
             Add
           </button>
-          <button className="Btn" onClick={this.clearHandler}>
+          <button className="Btn delete" onClick={this.clearHandler}>
             Clear Completed
           </button>
         </section>
+        <List list={this.state.List} cb={this.callbackHandler} />
       </div>
     );
   }

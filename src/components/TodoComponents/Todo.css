@@ -1,11 +1,104 @@
 .Form{
   display: flex;
+  width: 600px;
 }
 .striked{
+  font-size: 2rem;
   cursor: pointer;
   text-decoration: line-through;
+  user-select: none;
+  width: 100%;
+  border-radius: 5px;
+  background-color:#edd5d5;
+  padding-left: 5px;
 }
 .normal{
+    font-size: 2rem;
     cursor: pointer;
     text-decoration: none;
+    user-select: none;
+    width: 100%;
+    border-radius: 5px;
+    background-color:#d5edd7;
+    padding-left: 5px;
+      transition: flex 1s;
+}
+.Btn{
+  flex-grow: 1;
+  border-style: solid;
+  border-color: #d5edd7;
+  border-radius: 10px;
+  box-shadow: none;
+  background-color: #fcfcfc;
+  transition: background-color 1s;
+  cursor: pointer;
+}
+.Btn:hover{
+  background-color: #d5edd7;
+
+}
+.delete{
+  border-color: #edd5d5;
+}
+.delete:hover{
+  background-color: #edd5d5;
+}
+.Btn:focus{
+  outline:0;
+}
+.ListInput{
+  flex-grow: 1;
+  height: 25px;
+  font-size: 1.5rem;
+  font-family: sans-serif;
+  background-color: #fcfcfc;
+  border: none;
+  border-bottom: 2px solid black;
+}
+.ListInput:focus{
+  outline:0;
+}
+.Jumbotron{
+  margin: auto;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  background-color: #fcfcfc;
+  min-height: 400px;
+  width: 800px;
+  padding-bottom: 100px;
+  border-radius: 15px;
+}
+body{
+  background-color:#dadfe5;
+}
+.searchico{
+  width: 25px;
+  height: 25px;
+}
+.searchbar{
+  display: flex;
+  width: 575px;
+
+  align-items: center;
+}
+.search{
+  display: flex;
+  align-items: center;
+  width: 200px;
+  height: 25px;
+}
+.searchInput{
+  margin-left: 80px;
+  height: 100%;
+  width: 215px
+}
+.nsearched{
+  width: 0px;
+  height: 0px;
+  margin: 0px;
+  visibility: hidden;
+}
+.searched{
+  visibility: visible;
 }
